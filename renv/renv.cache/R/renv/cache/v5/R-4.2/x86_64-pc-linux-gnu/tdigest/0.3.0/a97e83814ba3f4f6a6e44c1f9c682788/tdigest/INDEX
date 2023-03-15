@@ -1,0 +1,8 @@
+td_add                  Add a value to the t-Digest with the specified
+                        count
+td_create               Allocate a new histogram
+td_merge                Merge one t-Digest into another
+td_quantile_of          Return the quantile of the value
+td_total_count          Total items contained in the t-Digest
+td_value_at             Return the value at the specified quantile
+tquantile               Calculate sample quantiles from a t-Digest
