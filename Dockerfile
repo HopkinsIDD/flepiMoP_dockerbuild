@@ -122,7 +122,7 @@ COPY --chown=app:app renv/renv.cache $HOME/.cache
 COPY --chown=app:app renv/renv.lock $HOME/renv.lock
 COPY --chown=app:app renv/renv $HOME/renv
 COPY --chown=app:app Docker.Rprofile $HOME/.Rprofile
-COPY --chown=app:app flepimop/R_packages $HOME/R_packages
+COPY --chown=app:app flepimop/R_packages $HOME/flepimop/R_packages
 
 COPY --chown=app:app build/local_install.R $HOME/build/local_install.R
 
