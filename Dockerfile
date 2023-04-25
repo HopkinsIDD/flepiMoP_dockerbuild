@@ -102,7 +102,7 @@ ENV HOME /home/app
 # 
 ENV PYTHON_VERSION 3.10
 ENV VENV_ROOT /var/python/$PYTHON_VERSION/virtualenv
-COPY --chown=app:app flepimop/gempyor_pkg $HOME/gempyor_pkg
+COPY --chown=app:app flepimop-cache/gempyor_pkg $HOME/gempyor_pkg
 
 RUN sudo python -m venv $VENV_ROOT \
   && sudo chown app:app -R $VENV_ROOT \
@@ -122,7 +122,8 @@ COPY --chown=app:app renv/renv.cache $HOME/.cache
 COPY --chown=app:app renv/renv.lock $HOME/renv.lock
 COPY --chown=app:app renv/renv $HOME/renv
 COPY --chown=app:app Docker.Rprofile $HOME/.Rprofile
-COPY --chown=app:app flepimop/R_packages $HOME/flepimop/R_packages
+COPY --chown=app:app flepimop-cache/R_packages $HOME/flepi/R_packages
+COPY --chown=app:app flepimop-cache/main_scripts $HOME/flepi/main_scripts
 
 COPY --chown=app:app build/local_install.R $HOME/build/local_install.R
 
