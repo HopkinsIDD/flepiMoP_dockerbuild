@@ -11,7 +11,10 @@ ENV LC_ALL en_US.UTF-8
 
 # set noninteractive installation
 ENV DEBIAN_FRONTEND noninteractive
-ENV R_VERSION 4.1.0-1.2004.0
+#ENV R_VERSION 4.1.0-1.2004.0
+#ENV R_VERSION 4.1.0-1.2004.0
+#ENV R_BASE_VERSION 4.2.2-1.2004.0
+ENV R_BASE_VERSION 4.2.3-1.2004.0
 
 # see https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04
 # https://cran.r-project.org/bin/linux/debian/
@@ -24,6 +27,10 @@ RUN set -e \
       && add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' \
       && add-apt-repository ppa:git-core/ppa \
       && add-apt-repository ppa:deadsnakes/ppa
+
+#RUN apt --fix-broken install && apt update && apt upgrade && apt install r-base=${R_BASE_VERSION} r-base-dev=${R_BASE_VERSION}
+#RUN apt --fix-broken install && apt update && apt upgrade && apt install -y --no-install-recommends r-recommended=${R_BASE_VERSION} r-base=${R_BASE_VERSION} r-base-dev=${R_BASE_VERSION}
+RUN apt --fix-broken install && apt update && apt upgrade && apt install -y --no-install-recommends r-base-core=${R_BASE_VERSION}  r-base=${R_BASE_VERSION} r-base-dev=${R_BASE_VERSION} r-recommended=${R_BASE_VERSION}
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -72,8 +79,8 @@ RUN apt-get update && \
     libreadline-dev \
     supervisor \
     awscli \
-    r-base-dev=$R_VERSION \
-    r-base \
+ #   r-base-dev=${R_BASE_VERSION} \
+ #   r-base=${R_BASE_VERSION} \
     cmake \
     python3.10 \
     python3.10-dev \
