@@ -1,12 +1,12 @@
 Package: vroom
 Title: Read and Write Rectangular Text Data Quickly
-Version: 1.6.1
+Version: 1.6.3
 Authors@R: c(
-    person("Jim", "Hester", , "jim.hester@rstudio.com", role = "aut",
+    person("Jim", "Hester", role = "aut",
            comment = c(ORCID = "0000-0002-2739-7082")),
-    person("Hadley", "Wickham", , "hadley@rstudio.com", role = "aut",
+    person("Hadley", "Wickham", , "hadley@posit.co", role = "aut",
            comment = c(ORCID = "0000-0003-4757-117X")),
-    person("Jennifer", "Bryan", , "jenny@rstudio.com", role = c("aut", "cre"),
+    person("Jennifer", "Bryan", , "jenny@posit.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6983-2759")),
     person("Shelby", "Bearrows", role = "ctb"),
     person("https://github.com/mandreyel/", role = "cph",
@@ -15,7 +15,7 @@ Authors@R: c(
            comment = "grisu3 implementation"),
     person("Mikkel", "Jørgensen", role = "cph",
            comment = "grisu3 implementation"),
-    person("RStudio", role = c("cph", "fnd"))
+    person("Posit Software, PBC", role = c("cph", "fnd"))
   )
 Description: The goal of 'vroom' is to read and write data (like 'csv',
     'tsv' and 'fwf') quickly. When reading it uses a quick initial
@@ -42,9 +42,8 @@ Copyright: file COPYRIGHTS
 Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.2.3
-SystemRequirements: C++11
 NeedsCompilation: yes
-Packaged: 2023-01-22 17:14:29 UTC; jenny
+Packaged: 2023-04-28 19:57:03 UTC; jenny
 Author: Jim Hester [aut] (<https://orcid.org/0000-0002-2739-7082>),
   Hadley Wickham [aut] (<https://orcid.org/0000-0003-4757-117X>),
   Jennifer Bryan [aut, cre] (<https://orcid.org/0000-0002-6983-2759>),
@@ -52,8 +51,8 @@ Author: Jim Hester [aut] (<https://orcid.org/0000-0002-2739-7082>),
   https://github.com/mandreyel/ [cph] (mio library),
   Jukka Jylänki [cph] (grisu3 implementation),
   Mikkel Jørgensen [cph] (grisu3 implementation),
-  RStudio [cph, fnd]
-Maintainer: Jennifer Bryan <jenny@rstudio.com>
+  Posit Software, PBC [cph, fnd]
+Maintainer: Jennifer Bryan <jenny@posit.co>
 Repository: CRAN
-Date/Publication: 2023-01-22 21:00:01 UTC
-Built: R 4.3.0; x86_64-pc-linux-gnu; 2023-04-25 18:56:33 UTC; unix
+Date/Publication: 2023-04-28 22:20:02 UTC
+Built: R 4.3.1; x86_64-pc-linux-gnu; 2023-08-06 08:58:45 UTC; unix

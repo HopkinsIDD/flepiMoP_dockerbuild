@@ -1,13 +1,13 @@
 ## ---- message=FALSE-----------------------------------------------------------
 library(covidcast)
 
-comb <- covidcast_signal(data_source = "indicator-combination",
-                         signal = "nmf_day_doc_fbc_fbs_ght",
-                         start_day = "2020-07-01", end_day = "2020-07-14")
-summary(comb)
+dv <- covidcast_signal(data_source = "doctor-visits",
+                       signal = "smoothed_adj_cli",
+                       start_day = "2020-07-01", end_day = "2020-07-14")
+summary(dv)
 
-inum <- covidcast_signal(data_source = "usa-facts",
-                         signal = "confirmed_7dav_incidence_num",
+inum <- covidcast_signal(data_source = "jhu-csse",
+                         signal = "confirmed_7dav_incidence_prop",
                          start_day = "2020-07-01", end_day = "2020-07-14")
 summary(inum)
 
@@ -15,11 +15,11 @@ summary(inum)
 knitr::opts_chunk$set(fig.width = 6, fig.height = 4)
 
 ## -----------------------------------------------------------------------------
-plot(comb)
+plot(dv)
 
 ## -----------------------------------------------------------------------------
-plot(comb, time_value = "2020-07-04", choro_col = cm.colors(10), alpha = 0.4,
-     title = "Combination of COVID-19 indicators on 2020-07-04")
+plot(dv, time_value = "2020-07-04", choro_col = cm.colors(10), alpha = 0.4,
+     title = "COVID doctor visits on 2020-07-04")
 
 ## -----------------------------------------------------------------------------
 breaks <- c(0, 1, 2, 5, 10, 20, 50, 100, 200)
@@ -34,7 +34,7 @@ plot(inum, choro_col = colors, choro_params = list(breaks = breaks),
      title = "New COVID cases (7-day trailing average) on 2020-07-14")
 
 ## ---- message=FALSE-----------------------------------------------------------
-cprop <- covidcast_signal(data_source = "usa-facts",
+cprop <- covidcast_signal(data_source = "jhu-csse",
                           signal = "confirmed_cumulative_prop",
                           start_day = "2020-07-01", end_day = "2020-07-14")
 
@@ -53,7 +53,7 @@ plot(inum, plot_type = "bubble",
      bubble_params = list(breaks = seq(20, 200, len = 6)))
 
 ## ---- message=FALSE-----------------------------------------------------------
-iprop <- covidcast_signal(data_source = "usa-facts",
+iprop <- covidcast_signal(data_source = "jhu-csse",
                           signal = "confirmed_7dav_incidence_prop",
                           start_day = "2020-07-01", end_day = "2020-07-14")
 
@@ -75,37 +75,37 @@ p2 <- plot(iprop, plot_type = "bubble",
 grid.arrange(p1, p2, nrow = 1)
 
 ## ---- message=FALSE-----------------------------------------------------------
-comb_st <- covidcast_signal(data_source = "indicator-combination",
-                               signal = "nmf_day_doc_fbc_fbs_ght",
-                               start_day = "2020-04-15", end_day = "2020-07-01",
-                               geo_type = "state")
-inum_st <- covidcast_signal(data_source = "usa-facts",
-                               signal = "confirmed_7dav_incidence_num",
-                               start_day = "2020-04-15", end_day = "2020-07-01",
-                               geo_type = "state")
+dv_st <- covidcast_signal(data_source = "doctor-visits",
+                          signal = "smoothed_adj_cli",
+                          start_day = "2020-04-15", end_day = "2020-07-01",
+                          geo_type = "state")
+inum_st <- covidcast_signal(data_source = "jhu-csse",
+                            signal = "confirmed_7dav_incidence_prop",
+                            start_day = "2020-04-15", end_day = "2020-07-01",
+                            geo_type = "state")
 
 ## ---- message = FALSE---------------------------------------------------------
 library(dplyr)
 
 states <- c("ca", "pa", "tx", "ny")
-plot(comb_st %>% filter(geo_value %in% states), plot_type = "line")
+plot(dv_st %>% filter(geo_value %in% states), plot_type = "line")
 plot(inum_st %>% filter(geo_value %in% states), plot_type = "line")
 
 ## ---- warning = FALSE---------------------------------------------------------
 library(ggplot2)
 
-comb_md <- covidcast_signal(data_source = "indicator-combination",
-                               signal = "nmf_day_doc_fbc_fbs_ght",
-                               start_day = "2020-06-01", end_day = "2020-07-15",
-                               geo_values = name_to_fips("Miami-Dade"))
-inum_md <- covidcast_signal(data_source = "usa-facts",
-                               signal = "confirmed_7dav_incidence_num",
-                               start_day = "2020-06-01", end_day = "2020-07-15",
-                               geo_values = name_to_fips("Miami-Dade"))
+dv_md <- covidcast_signal(data_source = "doctor-visits",
+                          signal = "smoothed_adj_cli",
+                          start_day = "2020-06-01", end_day = "2020-07-15",
+                          geo_values = name_to_fips("Miami-Dade"))
+inum_md <- covidcast_signal(data_source = "jhu-csse",
+                            signal = "confirmed_7dav_incidence_prop",
+                            start_day = "2020-06-01", end_day = "2020-07-15",
+                            geo_values = name_to_fips("Miami-Dade"))
 
 # Compute the ranges of the two signals
 range1 <- inum_md %>% select("value") %>% range
-range2 <- comb_md %>% select("value") %>% range
+range2 <- dv_md %>% select("value") %>% range
 
 # Function to transform from one range to another
 trans <- function(x, from_range, to_range) {
@@ -117,11 +117,11 @@ trans <- function(x, from_range, to_range) {
 trans12 <- function(x) trans(x, range1, range2)
 trans21 <- function(x) trans(x, range2, range1)
 
-# Transform the combined signal to the incidence range, then stack
+# Transform the doctor visits signal to the incidence range, then stack
 # these rowwise into one data frame
-df <- select(rbind(comb_md %>% mutate_at("value", trans21),
+df <- select(rbind(dv_md %>% mutate_at("value", trans21),
                    inum_md), c("time_value", "value"))
-df$signal <- c(rep("Combined indicator", nrow(comb_md)),
+df$signal <- c(rep("Doctor visits", nrow(dv_md)),
                rep("New COVID-19 cases", nrow(inum_md)))
 
 # Finally, plot both signals
@@ -130,7 +130,7 @@ ggplot(df, aes(x = time_value, y = value)) +
   geom_line(aes(color = signal)) +
   scale_y_continuous(
     name = "New COVID-19 cases (7-day trailing average)",
-    sec.axis = sec_axis(trans12, name = "Combination of COVID-19 indicators")
+    sec.axis = sec_axis(trans12, name = "Doctor visits")
   ) +
   theme(legend.position = "bottom",
         legend.title = ggplot2::element_blank())

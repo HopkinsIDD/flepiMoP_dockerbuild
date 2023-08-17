@@ -375,7 +375,7 @@ examples and tests. Access it with
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See where the example file is stored on your machine</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">vroom_example</span>(<span class="st">&quot;mtcars.csv&quot;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>file</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;/private/tmp/RtmpyXMjW9/Rinst4a9e59823e98/vroom/extdata/mtcars.csv&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;/private/tmp/Rtmpp8UznO/Rinst14c963f20eaae/vroom/extdata/mtcars.csv&quot;</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the file, by default vroom will guess the delimiter automatically.</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">vroom</span>(file)</span>
@@ -393,7 +393,7 @@ examples and tests. Access it with
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1     4     4</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 W…  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also specify it explicitly, which is (slightly) faster, and safer if</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># you know how the file is delimited.</span></span>
@@ -412,7 +412,7 @@ examples and tests. Access it with
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1     4     4</span></span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 W…  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span></span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 </div>
 <div id="reading-multiple-files" class="section level2">
 <h2>Reading multiple files</h2>
@@ -447,7 +447,7 @@ filenames directly to vroom.</p>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Datsun 710  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Merc 240D   24.4     4  147.    62  3.69  3.19  20       1     0     4     2</span></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Merc 230    22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <p>Often the filename or directory where the files are stored contains
 information. The <code>id</code> parameter can be used to add an extra
 column to the result with the full path to each file. (in this case we
@@ -467,7 +467,7 @@ name the column <code>path</code>).</p>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 mtcar… Dats…  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 mtcar… Merc…  24.4     4  147.    62  3.69  3.19  20       1     0     4     2</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 mtcar… Merc…  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 </div>
 <div id="reading-compressed-files" class="section level2">
 <h2>Reading compressed files</h2>
@@ -491,7 +491,7 @@ vroom.</p>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1     4     4</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 W…  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span></span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <p><code>vroom()</code> decompresses, indexes and writes the
 decompressed data to a file in the temp directory in a single stream.
 The temporary file is used to lazily look up the values and will be
@@ -544,7 +544,7 @@ example you can select by:</p>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4         6     4</span></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 Wag     6     4</span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710        4     4</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <ul>
 <li>A numeric vector of column indexes,
 e.g. <code>c(1, 2, 5)</code></li>
@@ -564,7 +564,7 @@ e.g. <code>c(1, 2, 5)</code></li>
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4         6     4</span></span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 Wag     6     4</span></span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710        4     4</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <ul>
 <li>Using the selection helpers such as <code>starts_with()</code> and
 <code>ends_with()</code></li>
@@ -583,7 +583,7 @@ e.g. <code>c(1, 2, 5)</code></li>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   160  3.9 </span></span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   160  3.9 </span></span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   108  3.85</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <ul>
 <li>You can also rename columns</li>
 </ul>
@@ -602,7 +602,7 @@ e.g. <code>c(1, 2, 5)</code></li>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1     4     4</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 W…  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span></span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 </div>
 <div id="reading-fixed-width-files" class="section level2">
 <h2>Reading fixed width files</h2>
@@ -746,7 +746,7 @@ to use a named vector.</p>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1     4     4</span></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 W…  21       6   160   110  3.9   2.88  17.0     0     1     4     4</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># also skip reading the &#39;cyl&#39; column</span></span>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">vroom</span>(<span class="fu">vroom_example</span>(<span class="st">&quot;mtcars.csv&quot;</span>), <span class="at">col_types =</span> <span class="fu">c</span>(<span class="at">hp =</span> <span class="st">&quot;i&quot;</span>, <span class="at">cyl =</span> <span class="st">&quot;_&quot;</span>))</span>
@@ -756,7 +756,7 @@ to use a named vector.</p>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4      21     160   110  3.9   2.62  16.5     0     1     4     4</span></span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 Wag  21     160   110  3.9   2.88  17.0     0     1     4     4</span></span>
 <span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710     22.8   108    93  3.85  2.32  18.6     1     1     4     1</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span>
 <span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co"># also read the gears as a factor</span></span>
 <span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="fu">vroom</span>(<span class="fu">vroom_example</span>(<span class="st">&quot;mtcars.csv&quot;</span>), <span class="at">col_types =</span> <span class="fu">c</span>(<span class="at">hp =</span> <span class="st">&quot;i&quot;</span>, <span class="at">cyl =</span> <span class="st">&quot;_&quot;</span>, <span class="at">gear =</span> <span class="st">&quot;f&quot;</span>))</span>
@@ -766,7 +766,7 @@ to use a named vector.</p>
 <span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4      21     160   110  3.9   2.62  16.5     0     1 4         4</span></span>
 <span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 Wag  21     160   110  3.9   2.88  17.0     0     1 4         4</span></span>
 <span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710     22.8   108    93  3.85  2.32  18.6     1     1 4         1</span></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <p>You can read all the columns with the same type, by using the
 <code>.default</code> argument. For example reading everything as a
 character.</p>
@@ -777,7 +777,7 @@ character.</p>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4    21    6     160   110   3.9   2.62  16.46 0     1     4     4    </span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 W… 21    6     160   110   3.9   2.875 17.02 0     1     4     4    </span></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710   22.8  4     108   93    3.85  2.32  18.61 1     1     4     1    </span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <p>However you can also use the <code>col_*()</code> functions in a
 list.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vroom</span>(</span>
@@ -790,7 +790,7 @@ list.</p>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4      21     160   110  3.9   2.62  16.5     0     1 4         4</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 Wag  21     160   110  3.9   2.88  17.0     0     1 4         4</span></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710     22.8   108    93  3.85  2.32  18.6     1     1 4         1</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <p>This is most useful when a column type needs additional information,
 such as for categorical data when you know all of the levels of a
 factor.</p>
@@ -804,7 +804,7 @@ factor.</p>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1 4         4</span></span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Mazda RX4 W…  21       6   160   110  3.9   2.88  17.0     0     1 4         4</span></span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1 4         1</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 29 more rows</span></span></code></pre></div>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 </div>
 <div id="name-repair" class="section level2">
 <h2>Name repair</h2>

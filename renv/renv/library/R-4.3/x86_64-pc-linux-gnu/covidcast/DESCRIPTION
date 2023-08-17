@@ -1,8 +1,8 @@
 Package: covidcast
 Type: Package
 Title: Client for Delphi's 'COVIDcast Epidata' API
-Version: 0.4.5
-Date: 2023-01-03
+Version: 0.5.2
+Date: 2023-07-11
 Authors@R: 
   c(
     person(given = "Taylor",
@@ -26,6 +26,9 @@ Authors@R:
     person(given = "Pedrito",
            family = "Maynard-Zhang",
            role = "ctb"),
+    person(given = "Kathryn",
+           family = "Mazaitis",
+           role = "aut"),
     person(given = "Alex",
            family = "Reinhart",
            role = c("aut", "cre"),
@@ -50,14 +53,14 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr, ggplot2, grDevices, httr, MMWRweek, purrr, rlang, sf,
-        tidyr
+        tidyr, xml2
 RoxygenNote: 7.2.3
 Suggests: gridExtra, httptest, knitr, mockery, rmarkdown, testthat,
         tibble, vdiffr
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2023-01-03 18:04:24 UTC; alexreinhart
+Packaged: 2023-07-11 18:21:00 UTC; alexreinhart
 Author: Taylor Arnold [aut],
   Jacob Bien [aut],
   Logan Brooks [aut],
@@ -65,9 +68,10 @@ Author: Taylor Arnold [aut],
   David Farrow [aut],
   Jed Grabman [ctb],
   Pedrito Maynard-Zhang [ctb],
+  Kathryn Mazaitis [aut],
   Alex Reinhart [aut, cre] (<https://orcid.org/0000-0002-6658-514X>),
   Ryan Tibshirani [aut]
 Maintainer: Alex Reinhart <areinhar@stat.cmu.edu>
 Repository: CRAN
-Date/Publication: 2023-01-07 14:20:12 UTC
-Built: R 4.3.0; ; 2023-04-25 18:57:47 UTC; unix
+Date/Publication: 2023-07-12 23:40:06 UTC
+Built: R 4.3.1; ; 2023-08-06 11:47:13 UTC; unix

@@ -30,7 +30,7 @@ head(hospitalized) %>%
 plot(hospitalized, plot_type = "choro")
 
 ## ---- message=FALSE-----------------------------------------------------------
-deaths <- covidcast_signal("indicator-combination", "deaths_incidence_prop",
+deaths <- covidcast_signal("jhu-csse", "deaths_7dav_incidence_prop",
                            start_day = "2020-10-01",
                            end_day = "2020-10-31",
                            geo_type = "state")

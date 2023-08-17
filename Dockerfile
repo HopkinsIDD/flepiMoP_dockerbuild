@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+#FROM ubuntu:22.04
 
 USER root
 ENV TERM linux
@@ -11,9 +12,11 @@ ENV LC_ALL en_US.UTF-8
 
 # set noninteractive installation
 ENV DEBIAN_FRONTEND noninteractive
-#ENV R_BASE_VERSION 4.2.2-1.2004.0
-ENV R_BASE_VERSION 4.3.0-1.2004.0
+#ENV R_BASE_VERSION 4.1.0-1.2004.0
 
+#ENV R_BASE_VERSION 4.2.1-3.2210.0
+#ENV R_BASE_VERSION 4.2.1-3.2204.0
+ENV R_BASE_VERSION 4.3.1-4.2004.0 
 # see https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04
 # https://cran.r-project.org/bin/linux/debian/
 # https://cran.r-project.org/bin/linux/ubuntu/README.html
@@ -21,9 +24,12 @@ RUN set -e \
       && apt-get update \
       && apt-get -u dist-upgrade \
       && apt-get -y install --no-install-recommends --no-install-suggests \
-        gnupg2 gnupg1 ca-certificates software-properties-common \
+        dirmngr gnupg2 gnupg1 apt-transport-https ca-certificates software-properties-common \
+#        gnupg2 gnupg1 ca-certificates software-properties-common \
       && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
       && add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' \
+      && add-apt-repository 'deb https://lug.mines.edu/mirrors/ubuntu/ focal-backports main restricted universe' \
+      && add-apt-repository ppa:c2d4u.team/c2d4u4.0+ \
       && add-apt-repository ppa:git-core/ppa \
       && add-apt-repository ppa:deadsnakes/ppa
 
@@ -74,8 +80,10 @@ RUN apt-get update && \
     libreadline-dev \
     supervisor \
     awscli \
-    r-base-dev=${R_BASE_VERSION} \
     r-base=${R_BASE_VERSION} \
+#    r-base-dev=${R_BASE_VERSION} \
+    r-base-dev \
+#    r-base=${R_BASE_VERSION} \
     cmake \
     python3.10 \
     python3.10-dev \

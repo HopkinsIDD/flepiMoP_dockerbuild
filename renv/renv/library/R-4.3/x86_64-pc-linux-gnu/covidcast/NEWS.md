@@ -1,3 +1,33 @@
+# covidcast 0.5.2
+
+- `covidcast_meta()` now caches the server's response for a length of time
+  specified by the COVIDcast API server, based on how frequently the metadata is
+  recomputed. Because `covidcast_meta()` is called by `covidcast_signal()`, this
+  saves one API call per call to `covidcast_signal()`. (@krivard, #645)
+
+- `covidcast_meta()` now more clearly reports errors when the API usage limit
+  has been reached.
+
+# covidcast 0.5.1
+
+- `covidcast_signals()` now supports the `time_type` argument, to match
+  `covidcast_signal()`. If you used optional arguments to `covidcast_signals()`
+  by position rather than by name, this may cause problems until you switch to
+  using named arguments.
+
+- Package vignettes have been altered to demonstrate more widely suitable
+  signals, and to consolidate on a smaller set of signals.
+
+# covidcast 0.5.0
+
+- The package now supports supplying API keys with requests to the COVIDcast
+  Epidata API. Beginning June 21, 2023, the Epidata API server will limit the
+  rate and type of queries made without an API key. See the "API keys" section
+  of `?covidcast_signal` for details on how to obtain and specify an API key.
+  (@krivard, #618)
+
+- Updates to be compatible with changes in dplyr 1.1.0. (@capnrefsmmat, #620)
+
 # covidcast 0.4.5
 
 - Updates to plotting code to be compatible with ggplot2 version 3.4.0.

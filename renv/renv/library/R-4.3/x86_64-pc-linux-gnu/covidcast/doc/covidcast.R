@@ -2,7 +2,7 @@
 library(covidcast)
 library(dplyr)
 
-cli <- covidcast_signal(data_source = "fb-survey", signal = "smoothed_cli",
+cli <- covidcast_signal(data_source = "fb-survey", signal = "smoothed_wcli",
                         start_day = "2020-05-01", end_day = "2020-05-07",
                         geo_type = "county")
 knitr::kable(head(cli))
@@ -11,13 +11,13 @@ knitr::kable(head(cli))
 summary(cli)
 
 ## ---- message=FALSE-----------------------------------------------------------
-cli <- covidcast_signal(data_source = "fb-survey", signal = "smoothed_cli",
+cli <- covidcast_signal(data_source = "fb-survey", signal = "smoothed_wcli",
                         start_day = "2020-05-01", end_day = "2020-05-07",
                         geo_type = "state")
 knitr::kable(head(cli))
 
 ## ---- message=FALSE-----------------------------------------------------------
-cli <- covidcast_signal(data_source = "fb-survey", signal = "smoothed_cli",
+cli <- covidcast_signal(data_source = "fb-survey", signal = "smoothed_wcli",
                         start_day = "2020-05-01", end_day = "2020-05-07",
                         geo_type = "county", geo_value = "42003")
 knitr::kable(head(cli))
@@ -42,30 +42,30 @@ knitr::kable(head(meta))
 #  summary(meta)
 
 ## ---- message = FALSE---------------------------------------------------------
-covidcast_signal(data_source = "doctor-visits", signal = "smoothed_cli",
+covidcast_signal(data_source = "doctor-visits", signal = "smoothed_adj_cli",
                  start_day = "2020-05-01", end_day = "2020-05-01",
                  geo_type = "state", geo_values = "pa", as_of = "2020-05-07")
 
 ## ---- message = FALSE---------------------------------------------------------
-covidcast_signal(data_source = "doctor-visits", signal = "smoothed_cli",
+covidcast_signal(data_source = "doctor-visits", signal = "smoothed_adj_cli",
                  start_day = "2020-05-01", end_day = "2020-05-01",
                  geo_type = "state", geo_values = "pa")
 
 ## ---- message = FALSE---------------------------------------------------------
-covidcast_signal(data_source = "doctor-visits", signal = "smoothed_cli",
+covidcast_signal(data_source = "doctor-visits", signal = "smoothed_adj_cli",
                  start_day = "2020-05-01", end_day = "2020-05-01",
                  geo_type = "state", geo_values = "pa",
                  issues = c("2020-05-01", "2020-05-15")) %>%
   knitr::kable()
 
 ## ---- message = FALSE---------------------------------------------------------
-covidcast_signal(data_source = "doctor-visits", signal = "smoothed_cli",
+covidcast_signal(data_source = "doctor-visits", signal = "smoothed_adj_cli",
                  start_day = "2020-05-01", end_day = "2020-05-07",
                  geo_type = "state", geo_values = "pa", lag = 7) %>%
   knitr::kable()
 
 ## ---- message = FALSE---------------------------------------------------------
-covidcast_signal(data_source = "doctor-visits", signal = "smoothed_cli",
+covidcast_signal(data_source = "doctor-visits", signal = "smoothed_adj_cli",
                  start_day = "2020-05-03", end_day = "2020-05-03",
                  geo_type = "state", geo_values = "pa",
                  issues = c("2020-05-09", "2020-05-15")) %>%
