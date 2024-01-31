@@ -439,8 +439,9 @@
     "config.writer": {
       "Package": "config.writer",
       "Version": "2.0.0",
-      "Source": "Repository",
-      "Repository": null,
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "~/flepi/R_packages/config.writer/",
       "Hash": "4c71dba4f83e25ad58053a3010e90911",
       "Requirements": [
         "MMWRweek",
@@ -449,7 +450,6 @@
         "magrittr",
         "readr",
         "tidyverse",
-        "tigris",
         "yaml"
       ]
     },
@@ -772,11 +772,11 @@
     "flepicommon": {
       "Package": "flepicommon",
       "Version": "0.0.1",
-      "Source": "Repository",
-      "Repository": null,
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "~/flepi/R_packeages/flepicommon/",
       "Hash": "f4b8cb8f999d4956da180191b7b1d831",
       "Requirements": [
-        "cdlTools",
         "covidcast",
         "data.table",
         "doParallel",
@@ -788,7 +788,6 @@
         "jsonlite",
         "lubridate",
         "magrittr",
-        "plyr",
         "purrr",
         "readr",
         "rlang",
@@ -1290,8 +1289,9 @@
     "inference": {
       "Package": "inference",
       "Version": "0.0.1",
-      "Source": "Repository",
-      "Repository": null,
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "~/flepi/R_packages/inference/",
       "Hash": "61e6aba7a546ad21658062e9f07ee09d",
       "Requirements": [
         "arrow",

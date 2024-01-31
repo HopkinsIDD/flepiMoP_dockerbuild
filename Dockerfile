@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 USER root
 ENV TERM linux
@@ -14,7 +14,8 @@ ENV DEBIAN_FRONTEND noninteractive
 #ENV R_VERSION 4.1.0-1.2004.0
 #ENV R_VERSION 4.1.0-1.2004.0
 #ENV R_BASE_VERSION 4.2.2-1.2004.0
-ENV R_BASE_VERSION 4.2.3-1.2004.0
+#ENV R_BASE_VERSION 4.2.3-1.2004.0
+ENV R_BASE_VERSION 4.2.0-1.2204.0
 
 # see https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04
 # https://cran.r-project.org/bin/linux/debian/
@@ -24,13 +25,12 @@ RUN set -e \
       && apt-get -y install --no-install-recommends --no-install-suggests \
         gnupg2 gnupg1 ca-certificates software-properties-common \
       && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
-      && add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' \
+      && add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/' \
       && add-apt-repository ppa:git-core/ppa \
       && add-apt-repository ppa:deadsnakes/ppa
 
 #RUN apt --fix-broken install && apt update && apt upgrade && apt install r-base=${R_BASE_VERSION} r-base-dev=${R_BASE_VERSION}
 #RUN apt --fix-broken install && apt update && apt upgrade && apt install -y --no-install-recommends r-recommended=${R_BASE_VERSION} r-base=${R_BASE_VERSION} r-base-dev=${R_BASE_VERSION}
-RUN apt --fix-broken install && apt update && apt upgrade && apt install -y --no-install-recommends r-base-core=${R_BASE_VERSION}  r-base=${R_BASE_VERSION} r-base-dev=${R_BASE_VERSION} r-recommended=${R_BASE_VERSION}
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -79,8 +79,10 @@ RUN apt-get update && \
     libreadline-dev \
     supervisor \
     awscli \
- #   r-base-dev=${R_BASE_VERSION} \
- #   r-base=${R_BASE_VERSION} \
+#    r-base-dev=${R_BASE_VERSION} \
+#    r-base=${R_BASE_VERSION} \
+    r-base-dev \
+    r-base \
     cmake \
     python3.10 \
     python3.10-dev \
@@ -133,5 +135,10 @@ COPY --chown=app:app flepimop-cache/R_packages $HOME/flepi/R_packages
 COPY --chown=app:app flepimop-cache/main_scripts $HOME/flepi/main_scripts
 
 COPY --chown=app:app build/local_install.R $HOME/build/local_install.R
+
+COPY --chown=app:app batch/ $HOME/batch/ 
+COPY --chown=app:app datasetup/ $HOME/datasetup/ 
+COPY --chown=app:app postprocessing/ $HOME/postprocessing/ 
+COPY --chown=app:app preprocessing/ $HOME/preprocessing/
 
 CMD ["/bin/bash"]
